@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TVM — Televisão de Moçambique</title>
+
+  <!-- Paleta e tipografia: defina no CSS (cores da marca, fontes sistemáticas ou Google Fonts) -->
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+  <!-- =========================================
+       HEADER: topo com marca, navegação e busca
+       CSS: .site-header, .brand, .menu, .menu-toggle, .search-bar
+       JS: toggle do menu mobile, busca global
+  ========================================== -->
+  <header class="site-header" role="banner">
+    <div class="container header-bar">
+      <a class="brand" href="/" aria-label="TVM - Página inicial">
+        <!-- Logotipo (use <img> otimizada) -->
+         <a href="index.html"></a>
+         <img src="./img/tvm-logo.jpg" alt="">
+        <!-- <span class="brand-logo" aria-hidden="true">TVM</span> -->
+        <!-- <span class="brand-subtitle">Televisão de Moçambique</span> -->
+      </a>
+
+      <!-- Botão de menu mobile (controlado por JS) -->
+      <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">☰</button>
+
+      <!-- Navegação principal -->
+      <nav id="primary-menu" class="menu" role="navigation" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#programacao">Programação</a></li>
+          <li><a href="#noticias">Notícias</a></li>
+          <li><a href="#videos">Vídeos</a></li>
+          <li><a href="#eventos">Entretenimento</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Barra de busca global -->
+      <form class="search-bar" role="search" aria-label="Buscar conteúdo">
+        <label for="search-input" class="sr-only">Buscar</label>
+        <input id="search-input" type="search" placeholder="Buscar na TVM..." />
+        <button type="submit" aria-label="Executar busca">🔎</button>
+      </form>
+    </div>
+  </header>
+
+  <!-- =========================================
+       HERO: destaque editorial
+       CSS: .hero, .hero-content, .hero-cta
+       JS: opcional (rotacionar destaques)
+  ========================================== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-content">
+      <h1 id="hero-title">Informação, cultura e entretenimento para Moçambique</h1>
+      <p>Programação atualizada, notícias confiáveis e vídeos em destaque — tudo num só lugar.</p>
+      <a class="hero-cta" href="#programacao">Ver programação de hoje</a>
+    </div>
+  </section>
+
+  <!-- =========================================
+       PROGRAMACAO: slider acessível e filtros
+       CSS: .section, .section-header, .filters, .programacao-slider, .slide
+       JS: slider automático e controles; ordenação; preferências (localStorage)
+  ========================================== -->
+  <section id="programacao" class="section programacao" aria-labelledby="programacao-title">
+  <div class="container programacao-layout">
+    
+    <!-- Esquerda: programa em destaque -->
+    <div class="programa-destaque">
+      <h3>Agora em exibição</h3>
+      <img src="./img/telejornal.jpg" alt="">
+      <p>Telejornal — Informação completa com reportagens e entrevistas.</p>
+    </div>
+
+    <!-- Direita: slider da programação -->
+    <div class="programacao-slider" role="region" aria-live="polite">
+        <div>
+            <h2>Programação do Dia</h2>
+        </div>
+      <article class="slide active" data-periodo="manha" data-hora="06:00">
+        <h3>06:00 — Bom Dia Moçambique</h3>
+        <p>Noticiário matinal com destaques nacionais e internacionais.</p>
+        <h3>08:00 - Roda Viva</h3>
+        <p>Debate sobre inclusão e deficiência visual em Moçambique.</p>
+        <h3>10:00 - Telescola</h3>
+        <p>Estudos aprofundados de materias preparativas para exames de admissao.</p>
+      </article>
+      <article class="slide" data-periodo="tarde" data-hora="13:00">
+        <h3>13:00 — Jornal da Tarde</h3>
+        <p>Resumo das principais notícias do dia.</p>
+        <h3>15:00 - Batidas</h3>
+        <p>Programa de entretenimento voltado a musica e cultura.</p>
+        <h3>17:00 - Moçambique em Concerto</h3>
+        <p>Programa das familias moçambicanas</p>.
+      </article>
+      <article class="slide" data-periodo="noite" data-hora="20:00">
+        <h3>20:00 — Telejornal</h3>
+        <p>Informação completa com reportagens e entrevistas.</p>
+        <h3>22:00 - Telenovela - ENIGMAS DO CORACAO</h3>
+        <p>Programa de entretenimento voltado a musica e cultura.</p>
+        <h3>00:00 - Fecho de Emissao</h3>
+        <p>Encerramento dos programas</p>.
+      </article>
+
+      <!-- Controles -->
+      <div class="slider-controls">
+        <button class="prev" aria-label="Anterior">◀</button>
+        <button class="next" aria-label="Próximo">▶</button>
+        <!-- <button class="autoplay" aria-pressed="true" aria-label="Autoplay">⏵︎</button>-->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- =========================================
+       NOTICIAS: cards com busca/filtragem
+       CSS: .section, .card-grid, .card (cores, borda, hover)
+       JS: busca/filtrar por termo, ordenação por data/título
+  ========================================== -->
+  <section id="noticias" class="section noticias" aria-labelledby="noticias-title">
+    <div class="container">
+      <h2 id="noticias-title">Notícias</h2>
+
+      <!-- Grid de cards (responsivo) -->
+      <div class="card-grid">
+        <article class="card" data-categoria="Institucional" data-data="2025-11-10">
+          <h3>Semana da Legalidade</h3>
+          <img src="./img/legalidade.jpg" alt="">
+          <p>Transparência e integridade na Administração da Justiça.</p>
+          <a href="#" class="card-link">Ler mais</a>
+        </article>
+
+        <article class="card" data-categoria="Segurança" data-data="2025-11-09">
+          <h3>Provedor de Justiça em Alerta</h3>
+          <img src="./img/provedor.jpg" alt="">
+          <p>Isaque Chande aponta aumento da insegurança.</p>
+          <a href="#" class="card-link">Ler mais</a>
+        </article>
+
+        <article class="card" data-categoria="Cultura" data-data="2025-11-08">
+          <h3>Bienal de Dança</h3>
+          <img src="./img/danca.jpg" alt="">
+          <p>Governo apoia a 11ª edição da dança contemporânea.</p>
+          <a href="#" class="card-link">Ler mais</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       VIDEOS: cards com destaque e player modal
+       CSS: .section, .card-grid, .card, .modal
+       JS: abrir modal, reproduzir/pausar, lazy-load
+  ========================================== -->
+  <section id="videos" class="section videos-destaque" aria-labelledby="videos-title">
+    <div class="container">
+      <h2 id="videos-title">Vídeos em Destaque</h2>
+
+      <div class="card-grid">
+
+        <article class="card" data-idvideo="xyz987">
+          <h3>UnISCED - Inaugura um Novo Centro de Recursos</h3>
+          <img src="./img/unisced.jpg" alt="">
+          <p>A Universidade Aberta ISCED - Voltada ao ensino a distancia, estende mais o seu braco por forma a abracar o pais inteiro e deixar a disponibilidade de todos a oportunidade de se formar.</p>
+          <button class="card-link play" aria-label="Ver documentário">Ver documentário</button>
+        </article>
+
+        <article class="card" data-idvideo="xyz987">
+          <h3>Entrevista com Sheila Ibraimo</h3>
+          <img src="./img/Sheila-Ibrahimo-melhor-influencer.jpg" alt="">
+          <p>Conversas inspiradoras com figuras moçambicanas.</p>
+          <button class="card-link play" aria-label="Ver documentário">Ver documentário</button>
+        </article>
+
+        <article class="card" data-idvideo="xyz987">
+          <h3>Documentário: Mundos Escondidos</h3>
+          <img src="./img/terra1.jpg" alt="">
+          <p>Exploração cultural e histórica de Moçambique.</p>
+          <button class="card-link play" aria-label="Ver documentário">Ver documentário</button>
+        </article>
+
+        <article class="card" data-idvideo="xyz987">
+          <h3>Munda das Tecnologias</h3>
+          <img src="./img/tecnologias.jpg" alt="">
+          <p>O Mundo das tecnologias tem ganhando amplos contornos no redesenho do modelo de vida humana. Acompanhe as novas tendencias e desafie-te a ficar por dentro das mais recentes novidades das tecnologias.</p>
+          <button class="card-link play" aria-label="Ver documentário">Ver documentário</button>
+        </article>
+      </div>
+    </div>
+
+    <!-- Modal do player (JS controla visibilidade) -->
+    <div class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Fechar">✕</button>
+        <h3 id="modal-title">Reprodução</h3>
+        <!-- Substituir por iframe de player ou <video> -->
+        <div class="modal-body">
+          <div class="video-placeholder">Carregando vídeo…</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       EVENTOS/ENTRETENIMENTO: cards simples
+       CSS: .section, .card-grid, .card
+       JS: filtros por data/local
+  ========================================== -->
+  <section id="eventos" class="section entretenimento" aria-labelledby="eventos-title">
+    <div class="container">
+      <h2 id="eventos-title">Eventos e Entretenimento</h2>
+
+      <div class="card-grid">
+        <article class="card" data-data="2025-11-15" data-local="Maputo">
+          <h3>Noite Cabo-Verdiana</h3>
+          <img src="./img/calemas.jpg" alt="">
+          <p>Os Calema novamente em espetáculo musical.</p>
+          <a href="#" class="card-link">Ver detalhes</a>
+        </article>
+
+        <article class="card" data-data="2025-12-02" data-local="Maputo">
+          <h3>Festival de Cinema</h3>
+          <img src="./img/film-festival-award-illustration-in-golden-colors-tribute-sign-with-laurel-wreath-png.png" alt="">
+          <p>Mostra de produções moçambicanas e lusófonas.</p>
+          <a href="#" class="card-link">Ver detalhes</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       NEWSLETTER: subscrição
+       CSS: .section, .newsletter, .form-control
+       JS: validação, armazenamento de email (localStorage), feedback
+  ========================================== -->
+  <section class="section newsletter" aria-labelledby="newsletter-title">
+    <div class="container">
+      <h2 id="newsletter-title">Receba atualizações da TVM</h2>
+      <form class="newsletter-form" novalidate>
+        <label for="newsletter-email">Seu email</label>
+        <input id="newsletter-email" type="email" placeholder="laleixo@estudantes.unisced.edu.mzgmail.com" required />
+        <button type="submit">Subscrever</button>
+        <p class="form-feedback" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+  
+
+
+  <!-- =========================================
+       FOOTER: rodapé com links animados
+       CSS: footer, .footer-columns, .footer-link (efeitos hover com ::before)
+       JS: mínimo (nenhum obrigatório)
+  ========================================== -->
+  <footer class="site-footer">
+  <div class="footer-cards">
+    <div class="footer-card">
+      <h3>TVM</h3>
+      <ul>
+        <li><a href="#">Sobre nós</a></li>
+        <li><a href="#">História</a></li>
+        <li><a href="#">Equipa</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-card">
+      <h3>CONTEÚDO</h3>
+      <ul>
+        <li><a href="#">Programas</a></li>
+        <li><a href="#">Notícias</a></li>
+        <li><a href="#">Vídeos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-card">
+      <h3>CONTACTO</h3>
+      <ul>
+        <li><a href="#">Email</a></li>
+        <li><a href="#">Telefone</a></li>
+        <li><a href="#">Localização</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-copy">© 2025 TVM - Todos os direitos reservados</p>
+</footer>
+
+  <button id="toggle-dark"></button>
+
+  <!-- Scripts globais -->
+  <script src="script.js"></script>
+</body>
+</html>
