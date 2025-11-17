@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TVM — Notícias</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <!-- HEADER reutilizado -->
+  <header class="site-header">
+    <div class="container header-bar">
+      <a class="brand" href="index.html"><img src="./img/tvm-logo.jpg" alt="TVM"></a>
+      <nav class="menu">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="noticias.html" class="active">Notícias</a></li>
+          <li><a href="videos.html">Vídeos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO de Notícias -->
+  <section class="hero noticias-hero">
+    <div class="container">
+      <h1>Últimas Notícias</h1>
+      <p>Informação atualizada sobre Moçambique e o mundo.</p>
+    </div>
+  </section>
+
+  <!-- FILTROS -->
+  <section class="section filtros">
+    <div class="container">
+      <button data-filter="all">Todas</button>
+      <button data-filter="politica">Política</button>
+      <button data-filter="cultura">Cultura</button>
+      <button data-filter="economia">Economia</button>
+    </div>
+  </section>
+
+  <!-- GRID DE NOTÍCIAS -->
+  <section class="section noticias-grid">
+    <div class="container card-grid">
+      <!-- 8 cards de exemplo -->
+      <article class="card" data-categoria="politica">
+        <img src="./img/noticia1.jpg" alt="">
+        <h3>Reforma Constitucional</h3>
+        <p>Debates intensos sobre mudanças na Constituição.</p>
+        <a href="#" class="card-link">Ler mais</a>
+      </article>
+
+      <article class="card" data-categoria="cultura">
+        <img src="./img/noticia2.jpg" alt="">
+        <h3>Festival de Música</h3>
+        <p>Artistas locais brilham em Maputo.</p>
+        <a href="#" class="card-link">Ler mais</a>
+      </article>
+
+      <!-- Repete até 8 cards -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>© 2025 TVM - Todos os direitos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
